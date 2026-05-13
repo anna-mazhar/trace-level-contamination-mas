@@ -1,0 +1,133 @@
+Loading data from 1 directories...
+  - analysis_val_gpt
+
+Loaded 179 runs, 188 token records
+Loaded 1099 correctness records
+======================================================================
+STATISTICS FOR RESEARCH PAPER
+======================================================================
+
+======================================================================
+1. BASIC COUNTS
+======================================================================
+We analyze 179 paired clean/perturbed runs across 26 GAIA tasks.
+
+======================================================================
+2. MANIFESTATION DISTRIBUTION (Overall)
+======================================================================
+Silent semantic corruption: 8.4%
+Behavioral detours: 48.6%
+Combined disruption: 43.0%
+No observable effect: 0.0%
+
+Detailed breakdown:
+  loop_or_extended_execution: 33.0%
+  catastrophic_failure: 24.6%
+  early_termination: 18.4%
+  strategy_reroute: 15.6%
+  silent_semantic_corruption: 8.4%
+
+======================================================================
+3. DIVERGENT RUNS ANALYSIS
+======================================================================
+Total divergent runs: 179
+Rerouting as primary signature: 90.5%
+Extended execution: 46.9%
+Early termination: 20.7%
+
+======================================================================
+4. BEHAVIORAL DETOURS vs COMBINED DISRUPTION
+======================================================================
+Behavioral detours favor rerouting: 98.9%
+Combined disruptions favor early termination: 48.1%
+
+======================================================================
+5. TOKEN OVERHEAD ANALYSIS
+======================================================================
+Overall median token multiplier: 1.09×
+
+By manifestation type:
+  loop_or_extended_execution:
+    Median: 2.09×, IQR: 1.38–2.78×, n=59
+  strategy_reroute:
+    Median: 1.02×, IQR: 0.94–1.33×, n=28
+  silent_semantic_corruption:
+    Median: 1.0×, IQR: 0.98–1.04×, n=15
+  catastrophic_failure:
+    Median: 0.97×, IQR: 0.72–1.45×, n=44
+  early_termination:
+    Median: 0.71×, IQR: 0.44–0.89×, n=33
+
+Behavioral detours: median 1.5× (IQR: 1.08–2.49×)
+Silent corruption: median 1.0×
+Early termination: median 0.71×
+Extended execution: median 2.09× (IQR: 1.38–2.78×)
+
+======================================================================
+5b. TOP-5 HIGH-COST PERTURBATIONS (Table~\ref{tab:high_cost_perts})
+======================================================================
+Perturbation              Median Overhead   Recovery Rate
+-------------------------------------------------------
+encoding_error                      2.42×           23.3%
+watermark                           2.08×            7.0%
+text_redaction                      1.87×           17.8%
+contrast_reduction                  1.84×            9.3%
+ocr_noise                           1.41×           21.7%
+
+======================================================================
+6. TABULAR PERTURBATIONS
+======================================================================
+Top manifestation: loop_or_extended_execution (37.2%)
+Silent semantic corruption: 2.6%
+
+Full breakdown:
+  loop_or_extended_execution: 37.2%
+  early_termination: 26.9%
+  strategy_reroute: 21.8%
+  catastrophic_failure: 11.5%
+  silent_semantic_corruption: 2.6%
+
+======================================================================
+7. MANIFESTATION BY FILE TYPE
+======================================================================
+
+TABULAR:
+  loop_or_extended_execution: 35.2%
+  early_termination: 23.1%
+  strategy_reroute: 19.8%
+  catastrophic_failure: 19.8%
+  silent_semantic_corruption: 2.2%
+
+DOCUMENT:
+  strategy_reroute: 25.8%
+  catastrophic_failure: 25.8%
+  loop_or_extended_execution: 25.8%
+  early_termination: 9.7%
+  silent_semantic_corruption: 3.2%
+
+IMAGE:
+  loop_or_extended_execution: 31.7%
+  catastrophic_failure: 28.3%
+  silent_semantic_corruption: 20.0%
+  early_termination: 11.7%
+  strategy_reroute: 1.7%
+
+AUDIO:
+  early_termination: 50.0%
+  strategy_reroute: 25.0%
+  catastrophic_failure: 25.0%
+
+UNKNOWN:
+
+======================================================================
+8. BY MODEL ANALYSIS
+======================================================================
+
+GPT:
+  Runs: 179, Tasks: 26
+  Behavioral detours: 48.6%
+  Silent corruption: 8.4%
+  Combined disruption: 43.0%
+
+
+======================================================================

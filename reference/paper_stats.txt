@@ -1,0 +1,121 @@
+Loading data from 3 directories...
+  - analysis_val_gpt
+  - analysis_val_llama
+  - analysis_val_qwen
+
+Loaded 614 runs, 624 token records
+Loaded 1099 correctness records
+======================================================================
+  structural_divergence_recovered:
+    Median: 1.02×, IQR: 0.99–1.03×, n=4
+  silent_semantic_corruption:
+    Median: 1.0×, IQR: 0.86–1.16×, n=94
+  no_observable_effect:
+    Median: 1.0×, IQR: 0.99–1.04×, n=21
+  structural_divergence_with_outcome_change:
+    Median: 0.48×, IQR: 0.45–0.74×, n=3
+  early_termination:
+    Median: 0.42×, IQR: 0.26–0.7×, n=136
+
+Behavioral detours: median 1.71× (IQR: 1.08–2.76×)
+Silent corruption: median 1.0×
+Early termination: median 0.42×
+Extended execution: median 2.4× (IQR: 1.6–3.6×)
+
+======================================================================
+5b. TOP-5 HIGH-COST PERTURBATIONS (Table~\ref{tab:high_cost_perts})
+======================================================================
+Perturbation              Median Overhead   Recovery Rate
+-------------------------------------------------------
+encoding_error                      1.37×           23.3%
+section_removal                     1.25×           11.6%
+number_corruption                   1.23×           30.4%
+paragraph_shuffle                   1.21×           25.0%
+ocr_noise                           1.16×           21.7%
+
+======================================================================
+6. TABULAR PERTURBATIONS
+======================================================================
+Top manifestation: loop_or_extended_execution (24.4%)
+Silent semantic corruption: 13.4%
+
+Full breakdown:
+  loop_or_extended_execution: 24.4%
+  early_termination: 23.2%
+  strategy_reroute: 20.7%
+  catastrophic_failure: 13.8%
+  silent_semantic_corruption: 13.4%
+  no_observable_effect: 3.7%
+  structural_divergence_recovered: 0.8%
+
+======================================================================
+7. MANIFESTATION BY FILE TYPE
+======================================================================
+
+TABULAR:
+  loop_or_extended_execution: 24.0%
+  early_termination: 21.6%
+  strategy_reroute: 19.5%
+  catastrophic_failure: 17.8%
+  silent_semantic_corruption: 13.2%
+  no_observable_effect: 3.1%
+  structural_divergence_recovered: 0.7%
+
+DOCUMENT:
+  loop_or_extended_execution: 28.7%
+  catastrophic_failure: 18.8%
+  early_termination: 16.8%
+  silent_semantic_corruption: 14.9%
+  strategy_reroute: 9.9%
+  no_observable_effect: 5.9%
+  structural_divergence_with_outcome_change: 1.0%
+  structural_divergence_recovered: 1.0%
+
+IMAGE:
+  loop_or_extended_execution: 25.5%
+  early_termination: 24.5%
+  silent_semantic_corruption: 19.0%
+  catastrophic_failure: 16.5%
+  strategy_reroute: 9.5%
+  no_observable_effect: 1.0%
+  structural_divergence_with_outcome_change: 1.0%
+  structural_divergence_recovered: 0.5%
+
+AUDIO:
+  early_termination: 40.0%
+  loop_or_extended_execution: 20.0%
+  catastrophic_failure: 15.0%
+  no_observable_effect: 15.0%
+  strategy_reroute: 10.0%
+
+UNKNOWN:
+  loop_or_extended_execution: 43.8%
+  silent_semantic_corruption: 18.8%
+  catastrophic_failure: 18.8%
+  no_observable_effect: 6.2%
+
+======================================================================
+8. BY MODEL ANALYSIS
+======================================================================
+
+GPT:
+  Runs: 179, Tasks: 26
+  Behavioral detours: 48.6%
+  Silent corruption: 8.4%
+  Combined disruption: 43.0%
+
+LLAMA:
+  Runs: 218, Tasks: 32
+  Behavioral detours: 35.4%
+  Silent corruption: 28.4%
+  Combined disruption: 35.3%
+
+QWEN:
+  Runs: 217, Tasks: 32
+  Behavioral detours: 38.3%
+  Silent corruption: 7.8%
+  Combined disruption: 42.0%
+*** End Patch
+======================================================================
+
+PAPER FILL-INS SUMMARY
